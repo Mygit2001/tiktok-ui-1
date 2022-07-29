@@ -15,12 +15,15 @@
    align-items: center;
    justify-content: space-between;
 }
+.search,
+.search-results {
+   width: 361px;
+}
 .search {
    position: relative;
    align-items: center;
    background-color: #f1f1f2;
    border-radius: 92px;
-   width: 361px;
    height: 46px;
    color: #161823;
    display: flex;
@@ -52,6 +55,12 @@
    &:focus-within {
       border: 1.5px solid rgba(22, 24, 35, 0.2);
    }
+}
+.search-title {
+   font-size: 14px;
+   padding: 5px 12px;
+   line-height: 20px;
+   color: rgba(22, 24, 35, 0.5);
 }
 .clear,
 .loading {
