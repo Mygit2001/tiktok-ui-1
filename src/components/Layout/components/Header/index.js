@@ -1,7 +1,11 @@
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+   faCircleXmark,
+   faMagnifyingGlass,
+   faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import 'tippy.js/dist/tippy.css'; // optional
@@ -9,6 +13,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PoperWrapper } from '~/components/Poper';
 import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
+// import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 const cx = classNames.bind(styles);
 function Header() {
    const [searchResults, setSearchResults] = useState([]);
@@ -49,7 +55,10 @@ function Header() {
                   </button>
                </div>
             </Tippy>
-            <div className={cx('actions')}>action</div>
+            <div className={cx('actions')}>
+               <Button Text>Tải lên</Button>
+               <Button primary>Đăng nhập</Button>
+            </div>
          </div>
       </header>
    );
