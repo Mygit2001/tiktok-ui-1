@@ -22,6 +22,12 @@
 .title + .icon {
    margin-left: 8px;
 }
+
+.icon {
+   display: inline-block;
+   width: 24px;
+   text-align: center;
+}
 .rounded {
    border-radius: 999px;
    box-shadow: 0 2px 8px rgba(0 0 0 /6%);
@@ -51,6 +57,15 @@
       background-color: rgba(254, 44, 85, 0.06);
    }
 }
+
+.text {
+   // border-color: #ccc;
+   &:hover {
+      cursor: pointer;
+      background-color: rgba(22, 24, 35, 0.03);
+   }
+}
+
 //button sizes
 .small {
    min-width: 88px;
@@ -59,12 +74,4 @@
 .large {
    min-width: 136px;
    padding: 14px 16px;
-}
-
-.text {
-   border-color: #ccc;
-   &:hover {
-      cursor: pointer;
-      background-color: rgba(22, 24, 35, 0.03);
-   }
 }
