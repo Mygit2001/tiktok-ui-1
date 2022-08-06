@@ -12,6 +12,7 @@
    height: 100%;
    width: var(--default-layout-width);
    display: flex;
+   padding: var(--default-layout-horizontal-space);
    align-items: center;
    justify-content: space-between;
 }
@@ -91,6 +92,6 @@
 .more-btn {
    font-size: 2rem;
    margin-left: 28px;
-   padding:4px 8px;
+   padding: 4px 8px;
    background-color: transparent;
 }
