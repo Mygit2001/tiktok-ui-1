@@ -8,7 +8,7 @@
    --default-layout-horizontal-space: 24px;
    --black: black;
    --white: white;
-   --text-color: #333;
+   --text-color: #161823;
 }
 body {
    font-size: 1.6rem;
@@ -32,6 +32,6 @@ input,
    border: none;
 }
 a[href] {
-   color: #161823;
+   color: var(--text-color);
    text-decoration: none;
 }

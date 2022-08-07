@@ -89,9 +89,31 @@
       background-color: rgba(22, 24, 35, 0.06);
    }
 }
+//action
+.actions {
+   display: flex;
+   align-items: center;
+}
+
 .more-btn {
    font-size: 2rem;
    margin-left: 28px;
    padding: 4px 8px;
    background-color: transparent;
+}
+
+.action-btn {
+   font-size: 2.1rem;
+   padding: 4px 12px;
+   color: #161823;
+   cursor: pointer;
+   background-color: transparent;
+}
+.user-avatar {
+   width: 32px;
+   height: 32px;
+   object-fit: cover;
+   border-radius: 50%;
+   margin-left: 12px;
+   cursor: pointer;
 }
