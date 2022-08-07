@@ -12,7 +12,6 @@ import {
    faGear,
    faKeyboard,
    faMagnifyingGlass,
-   faMessage,
    faSignOut,
    faSpinner,
    faUser,
@@ -26,6 +25,8 @@ import { Wrapper as PoperWrapper } from '~/components/Poper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Poper/Menu';
+import { InboxIcon, MessageIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 // import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -76,7 +77,6 @@ function Header() {
          default:
       }
    };
-
    const userMenu = [
       {
          icon: <FontAwesomeIcon icon={faUser} />,
@@ -143,7 +143,12 @@ function Header() {
                      </Tippy>
                      <Tippy delay={[0, 200]} content="Message" placement="bottom">
                         <button className={cx('action-btn')}>
-                           <FontAwesomeIcon icon={faMessage} />
+                           <MessageIcon />
+                        </button>
+                     </Tippy>
+                     <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
+                        <button className={cx('action-btn')}>
+                           <InboxIcon />
                         </button>
                      </Tippy>
                   </>
@@ -155,7 +160,7 @@ function Header() {
                )}
                <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                   {currentUser ? (
-                     <img
+                     <Image
                         src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/115cca71265c94522079ac7e93a0274b.jpeg?x-expires=1659920400&x-signature=bSa%2BgJvMHBq6HA2yZSe9MTZ04fA%3D"
                         className={cx('user-avatar')}
                         alt="Sy le"
