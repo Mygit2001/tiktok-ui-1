@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SearchIcon } from '~/components/Icons';
+import { useDebounce } from '~/hooks';
 import { Wrapper as PoperWrapper } from '~/components/Poper';
 import AccountItem from '~/components/AccountItem';
 import styles from './Search.module.scss';
@@ -16,15 +17,17 @@ function Search() {
    const [showResults, setShowResults] = useState(true);
    const [loading, setLoading] = useState(false);
 
+   const debounced = useDebounce(searchValue, 600)
+
    const inputRef = useRef();
 
    useEffect(() => {
-      if (!searchValue.trim()) {
+      if (!debounced.trim()) {
          setSearchResults([]);
          return;
       }
       setLoading(true);
-      fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+      fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
          .then((res) => res.json())
          .then((res) => {
             setSearchResults(res.data);
@@ -33,7 +36,7 @@ function Search() {
          .catch(() => {
             setLoading(false);
          });
-   }, [searchValue]);
+   }, [debounced]);
 
    const handleHideResults = () => {
       setShowResults(false);
