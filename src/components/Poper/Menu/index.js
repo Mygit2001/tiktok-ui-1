@@ -8,7 +8,7 @@ import Header from './Header';
 const cx = classNames.bind(styles);
 
 const defaultFucn = () => {};
-function Menu({ children, items = [], onChange = defaultFucn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFucn }) {
    const [history, setHistory] = useState([{ data: items }]);
    const current = history[history.length - 1];
 
@@ -35,6 +35,7 @@ function Menu({ children, items = [], onChange = defaultFucn }) {
          interactive
          delay={[0, 600]}
          offset={[16, 8]}
+         hideOnClick={hideOnClick}
          placement="bottom-end"
          render={(attrs) => (
             <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -47,7 +48,7 @@ function Menu({ children, items = [], onChange = defaultFucn }) {
                         }}
                      />
                   )}
-                  {renderItems()}
+                  <div className={cx('menu-body')}>{renderItems()}</div>
                </PoperWrapper>
             </div>
          )}
