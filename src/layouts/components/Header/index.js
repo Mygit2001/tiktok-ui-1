@@ -22,7 +22,7 @@ import Image from '~/components/Image';
 import Menu from '~/components/Poper/Menu';
 import Search from '../Search';
 import styles from './Header.module.scss';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
    {
@@ -93,7 +93,7 @@ function Header() {
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
             <div>
-               <Link to={routesConfig.home} className={cx('logo-head')}>
+               <Link to={config.routes.home} className={cx('logo-head')}>
                   <img src={images.logo} alt="logo tiktok" />
                </Link>
             </div>
