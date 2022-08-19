@@ -44,10 +44,6 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFuc
    const handleResetFirstPage = () => {
       setHistory((prev) => prev.slice(0, 1));
    };
-
-   const handleBack = () => {
-      setHistory((prev) => prev.slice(0, prev.length - 1));
-   };
    return (
       <Tippy
          interactive

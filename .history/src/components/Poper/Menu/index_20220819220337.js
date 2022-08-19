@@ -3,7 +3,7 @@ import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 import styles from './Menu.module.scss';
-import { Wrapper as PoperWrapper } from '~/components/Poper';
+import { Wrapper as PoperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
 const cx = classNames.bind(styles);
@@ -34,20 +34,18 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFuc
    const renderResult = (attrs) => (
       <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
          <PoperWrapper className={cx('menu-popper')}>
-            {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
+            {history.length > 1 && (
+               <Header
+                  title={current.title}
+                  onBack={() => {
+                     setHistory((prev) => prev.slice(0, prev.length - 1));
+                  }}
+               />
+            )}
             <div className={cx('menu-body')}>{renderItems()}</div>
          </PoperWrapper>
       </div>
    );
-
-   //reset to first page
-   const handleResetFirstPage = () => {
-      setHistory((prev) => prev.slice(0, 1));
-   };
-
-   const handleBack = () => {
-      setHistory((prev) => prev.slice(0, prev.length - 1));
-   };
    return (
       <Tippy
          interactive
@@ -56,7 +54,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFuc
          hideOnClick={hideOnClick}
          placement="bottom-end"
          render={renderResult}
-         onHide={handleResetFirstPage}
+         onHide={() => setHistory((prev) => prev.slice(0, 1))}
       >
          {children}
       </Tippy>

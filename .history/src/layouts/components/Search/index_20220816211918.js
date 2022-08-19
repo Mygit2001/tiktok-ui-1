@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
 import { Wrapper as PoperWrapper } from '~/components/Poper';
-import AccountItem from '~/components/AccountItem';
+import AccountItem from '~/components/AccountItem/AccountItem';
 import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
@@ -16,15 +16,15 @@ const cx = classNames.bind(styles);
 function Search() {
    const [searchValue, setSearchValue] = useState('');
    const [searchResults, setSearchResults] = useState([]);
-   const [showResults, setShowResults] = useState(false);
+   const [showResults, setShowResults] = useState(true);
    const [loading, setLoading] = useState(false);
 
-   const debouncedValue = useDebounce(searchValue, 600);
+   const debounced = useDebounce(searchValue, 600);
 
    const inputRef = useRef();
 
    useEffect(() => {
-      if (!debouncedValue.trim()) {
+      if (!debounced.trim()) {
          setSearchResults([]);
          return;
       }
@@ -32,12 +32,12 @@ function Search() {
       const fetchApi = async () => {
          setLoading(true);
 
-         const results = await searchService.search(debouncedValue);
+         const results = await searchService.search(debounced);
          setSearchResults(results);
          setLoading(false);
       };
       fetchApi();
-   }, [debouncedValue]);
+   }, [debounced]);
 
    const handleHideResults = () => {
       setShowResults(false);

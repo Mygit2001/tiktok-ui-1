@@ -31,22 +31,26 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFuc
          );
       });
    };
+   const handleBack = () => {
+      setHistory((prev) => prev.slice(0, prev.length - 1));
+   }
    const renderResult = (attrs) => (
       <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
          <PoperWrapper className={cx('menu-popper')}>
-            {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
+            {history.length > 1 && (
+               <Header
+                  title={current.title}
+                  onBack={handleBack}
+               />
+            )}
             <div className={cx('menu-body')}>{renderItems()}</div>
          </PoperWrapper>
       </div>
    );
 
-   //reset to first page
+   
    const handleResetFirstPage = () => {
       setHistory((prev) => prev.slice(0, 1));
-   };
-
-   const handleBack = () => {
-      setHistory((prev) => prev.slice(0, prev.length - 1));
    };
    return (
       <Tippy

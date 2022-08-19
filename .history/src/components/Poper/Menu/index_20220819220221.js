@@ -31,23 +31,21 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFuc
          );
       });
    };
-   const renderResult = (attrs) => (
+   const renderRes = (attrs) => (
       <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
          <PoperWrapper className={cx('menu-popper')}>
-            {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
+            {history.length > 1 && (
+               <Header
+                  title={current.title}
+                  onBack={() => {
+                     setHistory((prev) => prev.slice(0, prev.length - 1));
+                  }}
+               />
+            )}
             <div className={cx('menu-body')}>{renderItems()}</div>
          </PoperWrapper>
       </div>
    );
-
-   //reset to first page
-   const handleResetFirstPage = () => {
-      setHistory((prev) => prev.slice(0, 1));
-   };
-
-   const handleBack = () => {
-      setHistory((prev) => prev.slice(0, prev.length - 1));
-   };
    return (
       <Tippy
          interactive
@@ -55,8 +53,8 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFuc
          offset={[16, 8]}
          hideOnClick={hideOnClick}
          placement="bottom-end"
-         render={renderResult}
-         onHide={handleResetFirstPage}
+         render={renderRes}
+         onHide={() => setHistory((prev) => prev.slice(0, 1))}
       >
          {children}
       </Tippy>
