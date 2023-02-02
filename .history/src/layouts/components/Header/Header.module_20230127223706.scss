@@ -1,0 +1,72 @@
+.wrapper {
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   height: var(--default-layout-header-height);
+   box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+   --search-height: 46px;
+   --search-top-spacer: 9px;
+   --search-button-width: 52px;
+   z-index: 10;
+   background-color: cadetblue;
+   op
+}
+.inner {
+   height: 100%;
+   width: var(--default-layout-width);
+   display: flex;
+   padding: var(--default-layout-horizontal-space);
+   align-items: center;
+   justify-content: space-between;
+}
+.logo-head {
+   display: flex;
+}
+//action
+.actions {
+   display: flex;
+   align-items: center;
+}
+
+.more-btn {
+   font-size: 2rem;
+   margin-left: 28px;
+   padding: 4px 8px;
+   background-color: transparent;
+}
+
+.action-btn {
+   position: relative;
+   font-size: 2.1rem;
+   padding: 4px 12px;
+   color: #161823;
+   cursor: pointer;
+   background-color: transparent;
+}
+
+.badge {
+   position: absolute;
+   top: -3px;
+   right: 0px;
+   padding: 0px 6px;
+   height: 2rem;
+   line-height: 2rem;
+   border-radius: 10px;
+   font-size: 1.4rem;
+   font-weight: 600;
+   color: var(--white);
+   font-family: var(--font-family);
+   background-color: var(--primary);
+}
+
+.user-avatar {
+   width: 32px;
+   height: 32px;
+   object-fit: cover;
+   border-radius: 50%;
+   margin-left: 12px;
+   cursor: pointer;
+}
