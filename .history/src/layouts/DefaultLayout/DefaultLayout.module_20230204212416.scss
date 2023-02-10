@@ -1,0 +1,21 @@
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   // background: url('https://images3.alphacoders.com/101/thumb-1920-1012111.jpg') top right no-repeat;
+   // background-position: center;
+   // background-size: cover;
+   // background-attachment: fixed;
+   // background-color: #4a4a4a;
+}
+.container {
+   width: var(--default-layout-width);
+   max-width: 100%;
+   padding: var(--default-layout-horizontal-space);
+   margin-top: var(--default-layout-header-height);
+   display: flex;
+   background-color: #4a4a4a;
+}
+.content {
+   flex: 1;
+}

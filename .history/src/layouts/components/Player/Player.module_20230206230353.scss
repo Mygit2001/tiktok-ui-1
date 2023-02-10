@@ -1,0 +1,18 @@
+.wrapper {
+   //    position: fixed;
+   //    bottom: 0;
+   //    left: 0;
+    width: 100%;
+    height: var(--default-layout-header-height);
+   //    box-shadow: 0px 3px 1px rgb(0 0 0 / 30%);
+   //    z-index: 10;
+   //    background-color: #3a5a94;
+   align-items: center;
+   background-color: #19342c;
+   color: #ffffff;
+   display: flex;
+   font-size: 14px;
+   justify-content: space-between;
+   line-height: 21px;
+   padding: 0px 20px;
+}
